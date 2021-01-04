@@ -15,7 +15,7 @@ public class ConfigurationServiceImpl implements ConfigurationService {
 
     public String getConfiguration(String id){
         Optional<Configuration> configurationOptional = configurationDao.findById(id);
-        if(configurationOptional.isEmpty()){
+        if(!configurationOptional.isPresent()){
             return null;
         }
         Configuration configuration = configurationOptional.get();
